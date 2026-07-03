@@ -37,36 +37,33 @@ const SingleProduct = () => {
       {singleProduct ? (
         <div className="px-4 pb-4 md:px-0">
           <Breadcrums title={singleProduct.title} />
-          <div className="max-w-6xl mx-auto md:p-6  grid   grid-cols-1 md:grid-cols-2  gap-13 ">
+          <div className="max-w-6xl mx-auto md:p-6 grid grid-cols-1 md:grid-cols-2 gap-13 ">
             {/* **************************************** Product Image ********************************** */}
 
             <div className="w-full">
               <img
                 src={singleProduct.image}
                 alt={singleProduct.title}
-                className="rounded w-full object-cover"
+                className="rounded  object-cover"
               />
             </div>
 
             {/* ************************************ Product Details  ********************************* */}
-            <div className="flex  flex-col gap-6 cursor-pointer ">
+            <div className="flex flex-col gap-6 cursor-pointer ">
               <h1 className="md:text-3xl font-bold text-gray-800">
-                {singleProduct.title}{" "}
+                {singleProduct.title}
               </h1>
               <div className="text-gray-700 ">
-                {" "}
-                {singleProduct.brand?.toUpperCase()} /{" "}
-                {singleProduct.Category?.toUpperCase()}/{" "}
-                {singleProduct.model}{" "}
+                {singleProduct.brand?.toUpperCase()}
+                {singleProduct.Category?.toUpperCase()}
+                {singleProduct.model}
               </div>
               <p className="text-xl text-red-500 font-bold ">
-                ${singleProduct.price}{" "}
+                ${singleProduct.price}
                 <span className="line-through text-gray-700">
-                  {" "}
                   ${originalPrice}
-                </span>{" "}
+                </span>
                 <span className="bg-red-500 text-white p-3 rounded">
-                  {" "}
                   {singleProduct.discount}% discount{" "}
                 </span>{" "}
               </p>
@@ -102,7 +99,7 @@ const SingleProduct = () => {
       ) : (
         /// if fail
         <div>
-          <div className="flex items-center justify-center h-[400px]">
+          <div className="flex items-center justify-center h-96">
             <video muted autoPlay loop>
               <source src={Loading} type="video/webm" />
             </video>

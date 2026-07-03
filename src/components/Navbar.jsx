@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { MapPin } from "lucide-react";
+import { MapPin, Menu, X } from "lucide-react";
 import { FaCaretDown } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import {
@@ -25,8 +25,8 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
 
   //const location = false ;
   return (
-    <div className="bg-white  py-4 shadow-2xl  px-5   md:px-0 ">
-      <div className="max-w-6xl mx-auto flex justify-between items-center ">
+    <div className="bg-white w-full py-4 shadow-2xl px-5 ">
+      <div className="max-w-6xl w-full mx-auto flex justify-between items-center ">
         {/* logo section  */}
         <div className="flex gap-12 items-center ">
           <Link to={"/"}>
@@ -40,9 +40,8 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
             <span className="font-semibold">
               {location ? (
                 <div className="-space-y-2 text-gray-600 font-bold">
-                  <p> {location.county} </p>
-                  <p> {location.state} </p>
                   <p> {location.city} </p>
+                  <p> {location.state} </p>
                 </div>
               ) : (
                 "Add Address"
@@ -51,7 +50,7 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
             <FaCaretDown onClick={toggleDropdown} />
           </div>
           {openDropdown ? (
-            <div className="w-[250px] h-max shadow-2xl z-50 bg-white fixed top-17 left-60 border-3 p-5 border-gray-200 rounded-md">
+            <div className="w-62 h-max shadow-2xl z-50 bg-white fixed top-17 left-60 border-3 p-5 border-gray-200 rounded-md">
               <h1 className=" font-semibold mb-3 text-xl flex justify-between ">
                 Change Location
                 <span
@@ -130,25 +129,24 @@ const Navbar = ({ location, getLocation, openDropdown, setOpenDropdown }) => {
             </span>
           </Link>
 
-          <div className="hidden md:block">
+          <div className="hidden md:block w-full">
             <SignedOut>
-              <SignInButton className="bg-red-500 text-black font-bold px-8 cursor-pointer py-3 rounded-full " />
+              <SignInButton className="bg-red-500 text-black font-bold  cursor-pointer px-4 py-2 text-xs rounded " />
             </SignedOut>
             <SignedIn>
               <UserButton />
             </SignedIn>
           </div>
-          {openNav ? (
-            <MdMenu
-              onClick={() => setOpenNav(false)}
-              className=" h-7 w-7 md:hidden "
-            />
-          ) : (
-            <HiMenuAlt1
-              onClick={() => setOpenNav(true)}
-              className=" h-7 w-7 md:hidden "
-            />
-          )}
+          <button
+            onClick={() => setOpenNav(!openNav)}
+            className="md:hidden rounded p-2 transition hover:bg-gray-100"
+          >
+            {openNav ? (
+              <X className="h-7 w-7 text-gray-800" />
+            ) : (
+              <Menu className="h-7 w-7 text-gray-800" />
+            )}
+          </button>
         </nav>
       </div>
       <ResponsiveMenu openNav={openNav} setOpenNav={setOpenNav} />

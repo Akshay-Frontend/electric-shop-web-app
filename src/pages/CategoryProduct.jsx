@@ -9,8 +9,8 @@ import ProductListView from "../components/ProductListView";
 const CategoryProduct = () => {
   const [searchData, setSearchData] = useState([]);
   const params = useParams();
-  const category = params.category; // console.log(params);
-  // console.log(category);
+  const category = params.category;
+  console.log(category);
 
   const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const CategoryProduct = () => {
           })}
         </div>
       ) : (
-        <div className="flex items-center justify-center h-[400px] ">
+        <div className="flex items-center justify-center h-96">
           <video muted autoPlay loop>
             <source src={Loading} type="video/webm" />
           </video>

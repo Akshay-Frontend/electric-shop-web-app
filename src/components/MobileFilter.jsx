@@ -25,7 +25,7 @@ const MobileFilter = ({
 
   return (
     <>
-      <div className="bg-gray-100 flex justify-between items-center md:hidden  px-4 -2 mt-5">
+      <div className="bg-gray-500 flex justify-between items-center md:hidden px-4 my-3 rounded">
         <h1 className=" font-semibold text-2xl"> Filters </h1>
         <MdFilterAlt onClick={toggleFilter} className=" text-gray-800" />
       </div>
@@ -36,13 +36,13 @@ const MobileFilter = ({
             type="text"
             value={search}
             placeholder="Search..."
-            className="bg-white p-2 rounded-md  w-full border-gray-500"
+            className="bg-white p-2 rounded-md w-full border-gray-500"
           />
-          <h1 className="mt-5 font-semibold  text-xl"> Category </h1>
+          <h1 className="mt-5 font-semibold text-xl"> Category </h1>
           <div className="flex flex-col gap-4 mt-3 ">
             {categoryOnlyData?.map((item, index) => {
               return (
-                <div key={index} className="flex gap-3 ">
+                <div key={index} className="flex gap-3">
                   <input
                     type="checkbox"
                     name={item}

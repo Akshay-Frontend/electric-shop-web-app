@@ -18,7 +18,7 @@ const getPages = (current, total) => {
 
 const Pagination = ({ page, pageHandler, dynamicPage }) => {
   return (
-    <div className=" mt-19 mr-45 space-x-4 ">
+    <div className="my-5 space-x-4">
       <button
         onClick={() => pageHandler(page - 1)}
         disabled={page === 1}

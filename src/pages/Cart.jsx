@@ -20,19 +20,22 @@ const Cart = ({ location, getLocation }) => {
   const totalPrice = cartItem.reduce((total, item) => total + item.price, 0);
 
   return (
-    <div className="mt-10 max-w-6xl  mx-auto  px-4 md:px-0 mb-5">
+    <div className="my-5 max-w-6xl mx-auto md:px-0">
       {cartItem.length > 0 ? (
         <div>
-          <h1 className="font-bold  text-2xl "> My Cart ({cartItem.length})</h1>
+          <h1 className="font-bold px-2 text-2xl ">
+            {" "}
+            My Cart ({cartItem.length})
+          </h1>
           <div>
-            <div className=" mt-10 ">
+            <div className=" my-2">
               {cartItem.map((item, index) => {
                 return (
                   <div
                     key={index}
-                    className="bg-gray-100 p-4 rounded flex items-center justify-between mt-4 w-full"
+                    className="bg-gray-100 py-3 px-2 rounded flex items-center justify-between my-3 w-full"
                   >
-                    <div className="flex   items-center  md:gap-4 gap-7">
+                    <div className="flex items-center md:gap-4 gap-7">
                       <img
                         src={item.image}
                         alt={item.title}
@@ -40,10 +43,7 @@ const Cart = ({ location, getLocation }) => {
                       />
                     </div>
                     <div>
-                      <h1 className=" md:w-[300px]  line-clamp-2">
-                        {" "}
-                        {item.title}
-                      </h1>
+                      <h1 className="md:w-72 line-clamp-2"> {item.title}</h1>
                       <p className="text-red-500 font-bold text-lg">
                         {" "}
                         ${item.price}{" "}
@@ -77,8 +77,8 @@ const Cart = ({ location, getLocation }) => {
               })}
             </div>
             {/* ********************************* Start User Information From ***************************  */}
-            <div className=" grid grid-cols-1 md:grid-cols-2  gap-22  ml-8">
-              <div className=" bg-gray-100 rounded p-8  m-6 space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 w-full">
+              <div className=" bg-gray-100 rounded px-3 py-3 mx-2 space-y-2">
                 <h1 className="text-gray-800 font-bold text-xl">
                   Delivery Info{" "}
                 </h1>
@@ -161,7 +161,7 @@ const Cart = ({ location, getLocation }) => {
               </div>
 
               {/* ******************************* Start Bill Section ************************************* */}
-              <div className="bg-white border border-gray-100 shadow-xl rounded p-8  ml- mt-6 space-y-2 h-max">
+              <div className="border bg-amber-100 border-gray-500 shadow-2xl rounded px-5 py-4 my-6 mx-2 space-y-2 h-max">
                 <h1 className="text-gray-800 font-bold text-xl ">
                   {" "}
                   Bill Details{" "}
@@ -216,13 +216,13 @@ const Cart = ({ location, getLocation }) => {
                       placeholder="Enter Code "
                       className="p-3 rounded w-full "
                     />
-                    <button className="bg-white text-black border border-gray-200 px-4 cursor-pointer py-1 rounded ">
+                    <button className="bg-gray-800 text-white py-3 px-3 cursor-pointer text-sm rounded">
                       {" "}
                       Apply{" "}
                     </button>
                   </div>
                 </div>
-                <button className="bg-red-500  text-white px-4 py-3 rounded w-full cursor-pointer m-5">
+                <button className="bg-green-500 text-white text-sm font-bold px- py-3 my-2 rounded w-44 cursor-pointer">
                   {" "}
                   Proceed to Check Out{" "}
                 </button>
@@ -237,7 +237,7 @@ const Cart = ({ location, getLocation }) => {
             {" "}
             Oh no ! Your Cart is empty{" "}
           </h1>
-          <img src={emptyCard} className="w-[400px]" />
+          <img src={emptyCard} className="w-96" />
           <button
             onClick={() => navigate("/products")}
             className="bg-red-500 text-white px-4 py-3 rounded  cursor-pointer "
